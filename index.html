@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The Changing Commute – STAT260_Project</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-45431c2918bd31147ddb3fa7038bb99f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/intersection-observer-polyfill-1.0.0/intersection-observer.js"></script>
+<script src="site_libs/quarto-contrib/scrollama-3.2.0/scrollama.min.js"></script>
+<script src="site_libs/quarto-contrib/closeread-0.1.0/closeread.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta cr-debug-mode="false">
+<meta cr-remove-header-space="false">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/qmd-lab/closeread/closeread.css">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The Changing Commute</h1>
+<p class="subtitle lead">How the COVID-19 Pandemic Transformed Work Patterns in Manhattan</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<style type="text/css">
+* {
+  background-color: white;
+}
+
+body, html {
+  background-color: white;
+}
+
+/* Style for non-closeread content (centered) */
+.content > p,
+.content > blockquote {
+  max-width: 700px;
+  margin: 0 auto 1.5em;
+  font-family: Georgia, serif;
+  font-size: 1.15em;
+  line-height: 1.25;
+  padding: 0 2em;
+}
+
+/* Typography for closeread sections */
+.cr-section p {
+  font-family: Georgia, serif;
+  font-size: 1em;
+  line-height: 1.25;
+  margin-bottom: 1em;
+}
+
+/* First paragraph (lede) */
+.content > p:first-of-type {
+  font-size: 1.15em;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 2em;
+}
+
+/* Section headers */
+strong {
+  font-size: 1.2em;
+  display: block;
+  margin-top: 2.5em;
+  margin-bottom: 1em;
+  color: #2c3e50;
+}
+
+/* Make bullet lists match body text */
+ul, ol {
+  font-family: Georgia, serif;
+  font-size: 1em;
+  line-height: 1.25;
+  max-width: 700px;
+  margin: 0 auto 1.5em;
+  padding-left: 2em;
+}
+
+li {
+  font-family: Georgia, serif;
+  font-size: 1em;
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+}
+</style>
+</div>
+<p><strong>March 2020.</strong> The Big Apple. The Empire City. The city that never sleeps. A dense metropolis of crowded streets, yellow taxi cabs, and bustling pedestrians—tourists and locals alike. New York City isn’t quiet or still by any means. Yet in March of 2020, the COVID-19 pandemic emptied the once-busy office towers of Manhattan in weeks.</p>
+<p>What started out as a “temporary” emergency shutdown became a longer experiment in remote work patterns that would eventually reshape how millions of Americans spend their workdays today. Four years later, the pandemic has since receded from daily life, but its effects still echo. A key question remains: <strong>How permanently have these changes altered workplace patterns in New York City?</strong></p>
+<p>…and did all workers experience these changes equally?</p>
+<div style="text-align: center; margin: 2em auto; max-width: 800px;">
+<p><img src="nycstreet.jpeg" style="max-width: 100%; 
+              height: auto;
+              display: block;
+              margin: 0 auto;" alt="New York City street scene"></p>
+</div>
+<p><strong>Research Question:</strong> Among people who are employed, is there any relationship between 2019 versus 2023 workplace changes and commute times in New York, NY (Manhattan), and do these changes vary between white-collar and blue-collar workers?</p>
+<p><strong>About the Data</strong> Our analysis examines work commute patterns using data from the American Community Survey (ACS) accessed from IPUMS USA, comparing employed residents of New York County (Manhattan) in 2019 and 2023. Now, what does this data look like, and how was it collected?</p>
+<p>We specifically look at the ACS 2019 and 2023 samples, which are 1-in-100 national random (weighted) samples of the population. For both, the questionnaires contain 44 unique questions about topics such as education, employment, income, housing, and transportation.</p>
+<p>The ACS has been sent out via mail since 1950. Here’s what the question about commute time looks like, for example:</p>
+<p>Q. How many minutes did it usually take this person to get from home to work LAST WEEK?</p>
+<p>We selected variables capturing employment status, work industry, means of transportation to work, and commute time. Initially, our dataset had 6,645,362 observations and 16 variables.</p>
+<p><strong>Data Cleaning &amp; Methodology</strong> To answer our research question, we first needed to carefully consider how to clean our data. Summarized below are some of our decisions: <strong>1. Missingness Strategy</strong> We believe the missingness in our variables is not at random since survey respondents had the option not to respond to a given question. Thus, there may be underlying factors we are unaware of and that the data systematically misses. We grouped nonresponses into clearly defined categories rather than treating the commute times as zeros. <strong>2. Remote Work Classification</strong> One of the variables we extracted from IPUMS corresponded to the respondent’s primary means of transportation to work over the course of the previous week, and it included an option for “Worked at home.” This is how we classified remote workers. <strong>3. Employment Filter</strong> We created a binary indicator variable for whether a person was employed or not. Only employed workers were included in our analysis. <strong>4. Geographic Filter</strong> We restricted our dataset to New York County (Manhattan), which we identified and filtered by the county code variable. <strong>5. Occupational Classification</strong> We used Census industry codes to classify workers. White-collar: wholesale/retail, information, finance, education, health care, arts, public administration. Blue-collar: agriculture, manufacturing, transportation, construction, food services, and other services.</p>
+<p>These approaches allow us to create reliable indicators for employed individuals living in New York County and to group them into white-collar and blue-collar categories based on industry codes.</p>
+<p>Next, we can begin to address two key aspects of our research question: <strong>1. How Many People Worked Remotely?</strong> The most dramatic shift appears in the adoption of remote work.</p>
+<div class="cr-section cr-column-screen sidebar-right">
+<div class="narrative-col">
+<div class="trigger new-trigger" data-focus-on="cr-remote-totals">
+<div class="narrative">
+<p>In 2019, 3.5% of the reported employed ACS respondents in Manhattan were doing remote work. By 2023, that percentage rose to 9.4%.</p>
+</div>
+</div>
+<div class="trigger">
+<div class="narrative">
+<p>Remote work increased in Manhattan between 2019 and 2023, indicating a shift in how people engaged with their workplaces, even after the pandemic ended.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-remote-props-blue">
+<div class="narrative">
+<p>We can further break down our observations by looking at white-collar versus blue-collar workers. In 2019, 3.0% employed blue-collar respondents in Manhattan were doing remote work. By 2023, 8.0% blue-collar employed people worked remotely.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-remote-props-white">
+<div class="narrative">
+<p>As for the white-collar workers: in 2019, 3.3% employed respondents in Manhattan worked remotely, and by 2023, 7.7% people worked remotely.</p>
+</div>
+</div>
+<div class="trigger">
+<div class="narrative">
+<p>We can see that remote work similarly increased in Manhattan between 2019 and 2023 for both blue and white-collar workers, which is consistent with the increases for all employed respondents in our data subset.</p>
+</div>
+</div>
+<div class="trigger">
+<div class="narrative">
+<p><strong>…but is any of this significant?</strong></p>
+</div>
+</div>
+<div class="trigger">
+<div class="narrative">
+<p><strong>Let’s take a look!</strong></p>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-remote-totals" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="cr-remote-props-blue" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="cr-remote-props-white" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We can conduct a two-sample proportion z-test to see whether the difference in these proportions over time is significant. Let’s check our test assumptions first:</p>
+<p><strong>1. Independence</strong> ACS uses random sampling, so this assumption is satisfied. <strong>2. Random Sampling</strong> ACS is a random sample of the population, so this assumption is also satisfied. <strong>3. Sample Size</strong> We need at least 10 successes and 10 failures in each group: 2019: 1,248 remote, 33,989 not remote. 2023: 2,986 remote, 28,710 not remote. This assumption is satisfied. <strong>4. Independent Samples</strong> We have no reason to believe the 2019 and 2023 samples are dependent.</p>
+<div class="cr-section cr-column-screen sidebar-left">
+<div class="narrative-col">
+<div class="trigger new-trigger" data-focus-on="cr-ztest-base">
+<div class="narrative">
+<p>Running the test in R, the output is as follows:</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-ztest-chisq">
+<div class="narrative">
+<p>Notice the X-squared statistic:</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-ztest-chisq">
+<div class="narrative">
+<p>The X-squared value of 972.3 is extremely large, indicating a significant difference.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-ztest-pvalue">
+<div class="narrative">
+<p>Now, look at the p-value:</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-ztest-pvalue">
+<div class="narrative">
+<p>The p-value &lt; 2.2e-16 means this difference is highly statistically significant.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-ztest-ci">
+<div class="narrative">
+<p>Finally, the confidence interval:</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-ztest-ci">
+<div class="narrative">
+<p>We can see from the z-test output that the proportion of Manhattan residents working from home increased significantly from roughly 3.5% in 2019 to 9.4% in 2023 (p &lt; 0.001). We are 95% confident that the true population difference lies somewhere between 5.5 and 6.3 percentage points (95% CI: [-0.063, -0.055]).</p>
+</div>
+</div>
+<div class="trigger">
+<div class="narrative">
+<p>Because the confidence interval doesn’t include zero, we have further evidence that there’s a meaningful increase in the proportion of residents working from home from 2019 to 2023.</p>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-ztest-base" class="sticky">
+<style>
+.ztest-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.ztest-container img {
+  width: 100%;
+  display: block;
+}
+.ztest-highlight {
+  position: absolute;
+  background: rgba(255, 193, 7, 0.3);
+  pointer-events: none;
+}
+</style>
+
+<div class="ztest-container">
+  <img src="ztest_output.jpg" alt="Z-test Output">
+</div>
+</div>
+<div id="cr-ztest-chisq" class="sticky">
+<div class="ztest-container">
+  <img src="ztest_output.jpg" alt="Z-test Output">
+  <div class="ztest-highlight" style="top: 61%; left: 2.5%; width: 24%; height: 5%;"></div>
+</div>
+</div>
+<div id="cr-ztest-pvalue" class="sticky">
+<div class="ztest-container">
+  <img src="ztest_output.jpg" alt="Z-test Output">
+  <div class="ztest-highlight" style="top: 61%; left: 37.25%; width: 24%; height: 5%;"></div>
+</div>
+</div>
+<div id="cr-ztest-ci" class="sticky">
+<div class="ztest-container">
+  <img src="ztest_output.jpg" alt="Z-test Output">
+  <div class="ztest-highlight" style="top: 76.5%; left: 2.5%; width: 34%; height: 5%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Overall, the evidence suggests that there is a significant difference in the remote work proportions between 2019 and 2023. Although we can’t definitively state that the pandemic was the sole cause of such differences, we may speculate that the rise of remote and hybrid work from 2019 to 2023 has reshaped how New Yorkers in Manhattan travel to work.</p>
+<p><strong>2. What Were the Median Commute Times?</strong> For workers who still commute to their physical workplaces, how have travel times changed?</p>
+<div class="cr-section cr-column-screen sidebar-right">
+<div class="narrative-col">
+<div class="trigger new-trigger" data-focus-on="cr-medians-2019">
+<div class="narrative">
+<p>The median commute time in our 2019 data subset was 35 minutes for non-remote white-collar workers and 35 minutes for non-remote blue-collar workers. Combined, the overall median for white and blue-collar workers was 35 minutes.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-medians">
+<div class="narrative">
+<p>By 2023, these times changed to 30 minutes for white-collar workers and 30 minutes for blue-collar workers, with an overall median of 30 minutes. Both groups showed similar modest decreases.</p>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-medians-2019" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="cr-medians" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>To test whether median commute times changed significantly between 2019 and 2023 for in-person workers, we used a Wilcoxon rank sum test. Why? It’s a non-parametric test that’s appropriate for skewed data and robust to outliers. Note that this test focuses specifically on white-collar and blue-collar workers combined, as these represent the primary groups in our analysis.</p>
+<p>The test revealed a statistically significant difference (W = 60,760,598, p = 1.11e-8), confirming that commute times did decrease for in-person workers. However, the practical magnitude is quite small (35 to 30 minutes).</p>
+<p>This rank sum test confirms what our visualizations suggest: the more important story is that of composition: who is commuting, not how long are those commutes?</p>
+<p><strong>The Distribution of Commute Times</strong> To understand the more about our data, let’s examine the distributions of commute times for in-person workers.</p>
+<p>These histograms show the log-transformed values, which make the patterns more visible.</p>
+<p>Looking first at 2019, we can see the pre-pandemic baseline.</p>
+<div class="cr-section cr-column-screen sidebar-right">
+<div class="narrative-col">
+<div class="trigger new-trigger" data-focus-on="cr-dist-2019">
+<div class="narrative">
+<p>The distributions show substantial similarity between blue-collar and white-collar commuters. Both groups show the characteristic right-skewed pattern of urban commute times typical of dense cities with public transit systems.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-dist-2023">
+<div class="narrative">
+<p>Now let’s examine 2023 to see how patterns changed.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-dist-2023">
+<div class="narrative">
+<p>In 2023, the distributions look very similar to 2019. The shapes remained stable between the two time periods.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-dist-both">
+<div class="narrative">
+<p>Comparing the two years side-by-side confirms the stability.</p>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-dist-2019" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="cr-dist-2023" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="cr-dist-both" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The following visualization is a slopegraph of remote work share by year and industry. In other words, the percentage of remote workers between 2019 and 2023, visualized specifically to show a slope relationship.</p>
+<div class="cr-section cr-column-screen sidebar-right">
+<div class="narrative-col">
+<div class="trigger new-trigger" data-focus-on="cr-slopegraph_blue">
+<div class="narrative">
+<p>Remote work rose for blue-collar workers…</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-slopegraph">
+<div class="narrative">
+<p>…AND for white-collar workers between 2019 and 2023.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-slopegraph">
+<div class="narrative">
+<p>White-collar workers were slightly more remote in 2019, but by 2023, things switched: blue-collar workers worked remotely slightly more.</p>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-slopegraph_blue" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="cr-slopegraph" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Regression Analysis</strong> Because commute times were originally zero-inflated due to the responses of remote workers, we run a single linear regression only for those who actually commute to work. Furthermore, because commute times were right skewed, we log transformed the commute times.</p>
+<p>We included year as a predictor, which allows us to test whether commute times changed from 2019 to 2023. We included collar type as a predictor, which allows us to test whether those changes differ for white- collar and blue-collar workers.</p>
+<p>The equation for the commuter-only regression model with these two predictors:</p>
+<p><span class="math display">\[\log(\text{TRANTIME}) = \hat{\beta}_0 + \hat{\beta}_1(\text{YEAR}) + \hat{\beta}_2(\text{COLLAR}) + \hat{\beta}_3(\text{YEAR} \times \text{COLLAR})\]</span></p>
+<p><strong>Assumptions:</strong> Before getting into our regression analysis, let’s first address the assumptions for the regression:</p>
+<div class="cr-section cr-column-screen sidebar-left">
+<div class="narrative-col">
+<div class="trigger new-trigger" data-focus-on="cr-resid">
+<div class="narrative">
+<p><strong>1. Linearity</strong> In the visualization on the right, we see four distinct vertical bands of residuals scattered randomly around zero. Thus there is no curved pattern or trend across the fitted values, which confirms the linear relationship is appropriate.We see that all four groups show similar vertical spread (roughly -3 to +1.5), and the variance appears fairly constant across groups. <strong>3. Normality</strong> Most points cluster around zero, with relatively symmetric spread above and below. For large samples like ours, however, linear regression is robust to the normality assumption. <strong>4. Independence</strong> We have no evidence of dependence here. Each person’s commute time appears independent of others’, and we have no reason to believe otherwise. <strong>5. No Multicollinearity</strong> Year and occupation are independent variables, and being in 2019 vs 2023 isn’t determined by collar type.</p>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-resid" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Run the regression:</strong> Now, let’s take a close look at the regression output from R:</p>
+<div class="cr-section cr-column-screen sidebar-left">
+<div class="narrative-col">
+<div class="trigger new-trigger" data-focus-on="cr-reg-formula">
+<div class="narrative">
+<p>Here’s the regression equation:</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-reg-year">
+<div class="narrative">
+<p>First, let’s look at the year coefficient, highlighted on the right:</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-reg-year">
+<div class="narrative">
+<p>This shows commute times decreased slightly from 2019 to 2023, but the effect is small.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-reg-collar">
+<div class="narrative">
+<p>Second, let’s look at the collar coefficient:</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-reg-collar">
+<div class="narrative">
+<p>White-collar workers have meaningfully shorter commutes than blue-collar workers.</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-reg-interaction">
+<div class="narrative">
+<p>Finally, we have the interaction term:</p>
+</div>
+</div>
+<div class="trigger new-trigger" data-focus-on="cr-reg-interaction">
+<div class="narrative">
+<p>The decline over time is slightly larger (more negative) for white-collar workers compared to blue-collar workers.</p>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-reg-base" class="sticky">
+<style>
+.reg-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.reg-container img {
+  width: 100%;
+  display: block;
+}
+.highlight-box {
+  position: absolute;
+  background: rgba(255, 193, 7, 0.3);
+  pointer-events: none;
+}
+</style>
+
+<div class="reg-container">
+  <img src="regression_output.jpg" alt="Regression Output">
+</div>
+</div>
+<div id="cr-reg-formula" class="sticky">
+<div class="reg-container">
+  <img src="regression_output.jpg" alt="Regression Output">
+  <div class="highlight-box" style="top: 9.75%; left: 2.5%; width: 95%; height: 10%;"></div>
+</div>
+</div>
+<div id="cr-reg-year" class="sticky">
+<div class="reg-container">
+  <img src="regression_output.jpg" alt="Regression Output">
+  <div class="highlight-box" style="top: 54%; left: 2.5%; width: 69%; height: 5%;"></div>
+</div>
+</div>
+<div id="cr-reg-collar" class="sticky">
+<div class="reg-container">
+  <img src="regression_output.jpg" alt="Regression Output">
+  <div class="highlight-box" style="top: 58.5%; left: 2.5%; width: 69%; height: 5%;"></div>
+</div>
+</div>
+<div id="cr-reg-interaction" class="sticky">
+<div class="reg-container">
+  <img src="regression_output.jpg" alt="Regression Output">
+  <div class="highlight-box" style="top: 63%; left: 2.5%; width: 69%; height: 5%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong> After removing remote workers from our analysis, commute times among in-person commuters declined only slightly between 2019 and 2023. While median commute times were similar across both groups in both years, white-collar workers had slightly shorter average commutes and fewer extremely long commutes. The regression coefficients align with our visualizations: the small year effect (-0.015) confirms the modest decline we observed in the boxplots, while the collar coefficient (-0.048) quantifies the subtle white-collar advantage visible in the distribution tails. The significant interaction term indicates that the decline was slightly more pronounced for white-collar workers.</p>
+<hr>
+<p><strong>Conclusion</strong> Our analysis reveals that the pandemic’s effect on Manhattan commute patterns was primarily driven by changes in who commutes rather than how long they commute. The percentage of remote workers increased from 3.5% in 2019 to 8.5% in 2023, while physical commute times for in-person workers remained relatively stable.</p>
+<p>Both blue-collar and white-collar workers experienced similar increases in remote work adoption, with blue-collar workers reaching slightly higher remote work rates by 2023 (8.0% vs 7.7%).</p>
+<p>Four years after the pandemic first forced millions of workers to adapt to remote working, our data suggests that shifts toward more flexible work arrangements could be here to stay. Exploration of ACS data for post-2023 years might provide further insights about the longer-term stability of such patterns.</p>
+<p><strong>Limitations</strong> It’s worth mentioning a few limitations of our research design. First, our analysis compares two cross-sections, as opposed to data on the same individuals over time. Second, industry-based occupation classification might misclassify some workers, especially in vague or ambiguous industries. Third, we might not be able to identify hybrid workers, and their commute times may not be fully accurate. Fourth, our large sample size means that even small effects could be statistically significant. Fifth, other factors during the period between 2019 and 2023 may have influenced commute patterns, not just the pandemic, including: economic shifts, changes in housing costs, general technological use, etc. We cannot isolate the pandemic’s effect from the changes we observed. Finally, any results specific to Manhattan may not be generalizable to other American cities or even the other boroughs of New York City.</p>
+<p><strong>Ethical Considerations</strong> ACS data is anonymized to protect respondent privacy, and we want to make clear that our results should not be used to discriminate in any way. Furthermore, disparities in remote work access raise equity concerns.</p>
+<p><strong>Challenges Faced</strong> One challenge was how to deal with zero-inflation in commute times, which we ultimately decided to address by focusing on a subset of our data (non-remote workers.) Industry codes also required manual grouping based on personal judgment calls. Lastly, balancing statistical detail with effective communication in the scrollytelling format has been an interesting and rewarding challenge!</p>
+<hr>
+<p><strong>Data Source:</strong> IPUMS USA, University of Minnesota (www.ipums.org). American Community Survey samples from 2019 and 2023, restricted to employed residents of New York County (Manhattan). <strong>Image Credit:</strong> Mikołaj Kołodziejczyk via Pexels <strong>Authors:</strong> Sabrina Wang and Beatrix Kim | STAT 260 Final Project 2025</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
