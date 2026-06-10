@@ -1,0 +1,6 @@
+- source: project
+  quarto-pub:
+    - id: 88f94ed7-7ab7-4bd4-9866-ac61ed8ecfbf
+      url: https://beatrixkim.quarto.pub/stat260_project
+    - id: c0cf2591-e4b2-4675-81b1-b54da5e5792d
+      url: https://beatrixkim.quarto.pub/nyc_changing_commute
