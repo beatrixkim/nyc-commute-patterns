@@ -2,7 +2,7 @@
 Statistical analysis of COVID19-driven shifts in Manhattan commute patterns. Scrollytelling format built using R and Quarto with data from the American Community Survey (2019 and 2023).
 
 ## Project Site
-[See the scrollytelling page:](https://beatrixkim.github.io/nyc-commute-patterns/)
+See the scrollytelling page [here](https://beatrixkim.github.io/nyc-commute-patterns/)
 
 ## Built With
 R (ggplot2, tidyverse) and Quarto
@@ -16,10 +16,10 @@ Among employed Manhattan residents, is there a relationship between 2019 versus 
 - OLS regression with interaction term (year × occupation type) on log-transformed commute times
 
 ## Structure
-- `index.qmd` — main scrollytelling document
-- `_quarto.yml` — project configuration
+- `index.qmd` — main file with R code
 - `_extensions/` — closeread extension for scrollytelling
-- `graphics/` — images used in the document
+- `_quarto.yml` — project configuration
+- `_publish.yml` — page publishing configuration
 
 ## Notes
 Built as a collaborative course project (STAT260, Fall 2025) with Sabrina Wang.
