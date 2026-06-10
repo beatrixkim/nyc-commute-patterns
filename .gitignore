@@ -56,3 +56,4 @@ rsconnect/
 
 # Site folder
 /_site/
+**/*.quarto_ipynb
