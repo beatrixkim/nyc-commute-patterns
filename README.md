@@ -2,7 +2,7 @@
 Statistical analysis of COVID19-driven shifts in Manhattan commute patterns. Scrollytelling format built using R and Quarto with data from the American Community Survey (2019 and 2023).
 
 ## Project Site
-See the scrollytelling page [here](https://beatrixkim.github.io/nyc-commute-patterns/)
+See the scrollytelling page [here!](https://beatrixkim.github.io/nyc-commute-patterns/)
 
 ## Built With
 R (ggplot2, tidyverse) and Quarto
