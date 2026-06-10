@@ -50,3 +50,9 @@ rsconnect/
 
 # System file
 .DS_Store
+
+# quarto cache
+/.quarto/
+
+# Site folder
+/_site/
